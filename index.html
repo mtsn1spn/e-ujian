@@ -6,27 +6,84 @@
     <title>E-Ujian - MTsN 1 Kota Sungai Penuh</title>
     <!-- Logo / Favicon Resmi Madrasah untuk Tab Browser -->
     <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1mXvF1-nkmvfyg2EaI2O-Dh4kjP4390WX">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        html, body {
+        body {
+            background: linear-gradient(rgba(1, 83, 48, 0.9), rgba(1, 61, 35, 0.9)), url('https://lh3.googleusercontent.com/d/1lro9mz2bA9R9n-w4FJD09kT3Zzsa9ApM');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
             overflow: hidden;
-            background-color: #015330;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.96);
+            color: #333;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #015330;
+        }
+        .logo-img {
+            height: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Ganti URL di bawah ini dengan URL Web App Google Apps Script Anda yang berakhiran /exec -->
-    <iframe src="https://script.google.com/macros/s/AKfycbwiHcMF8B0kayYZimxg6RYE_T7bLHJRH2QaEFxH2IMDz5dcHMrjGU5UVyA_eB_zACgBxA/exec" allow="fullscreen"></iframe>
+    <!-- KARTU LOADING AWAL -->
+    <div class="welcome-card" id="card-loading">
+        <img src="https://lh3.googleusercontent.com/d/1mXvF1-nkmvfyg2EaI2O-Dh4kjP4390WX" alt="Logo" class="logo-img">
+        <h5 class="fw-bold text-success mb-3">E-Ujian MTsN 1 Kota Sungai Penuh</h5>
+        <div class="spinner-border my-3" role="status"></div>
+        <p class="text-muted fw-bold mb-0" style="font-size: 0.9rem;">Memuat sistem ujian...</p>
+    </div>
 
+    <!-- KARTU UTAMA (MUNCUL SETELAH LOADING) -->
+    <div class="welcome-card" id="card-main" style="display: none;">
+        <img src="https://lh3.googleusercontent.com/d/1mXvF1-nkmvfyg2EaI2O-Dh4kjP4390WX" alt="Logo" class="logo-img">
+        <h3 class="fw-bold text-success mb-2">Selamat Datang</h3>
+        <p class="text-dark fw-bold mb-4">Aplikasi E-Ujian MTsN 1 Kota Sungai Penuh</p>
+        
+        <!-- Ganti tautan href di bawah ini dengan URL Web App Google Apps Script Anda yang berakhiran /exec -->
+        <a href="https://script.google.com/macros/s/AKfycbwiHcMF8B0kayYZimxg6RYE_T7bLHJRH2QaEFxH2IMDz5dcHMrjGU5UVyA_eB_zACgBxA/exec" class="btn btn-success btn-lg w-100 fw-bold py-3 shadow-sm">
+            <i class="bi bi-box-arrow-in-right me-2"></i> MASUK KE HALAMAN LOGIN
+        </a>
+        
+        <p class="text-muted small mt-4 mb-0">&copy; 2026 - MTsN 1 Kota Sungai Penuh</p>
+    </div>
+
+    <script>
+        // Simulasi animasi loading selama 2 detik sebelum menampilkan tombol masuk
+        setTimeout(() => {
+            document.getElementById('card-loading').style.display = 'none';
+            document.getElementById('card-main').style.display = 'block';
+        }, 2000);
+    </script>
 </body>
 </html>
