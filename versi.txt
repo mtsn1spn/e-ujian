@@ -1,2 +1,2 @@
-1.1
+1.2
 https://github.com/mtsn1spn/e-ujian/releases/latest/download/EUjian_MTsN1.exe
